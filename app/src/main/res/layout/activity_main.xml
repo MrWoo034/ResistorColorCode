@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    android:weightSum="460">
+
+    <RelativeLayout
+        android:layout_weight="75"
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="3-Band Resistor"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="125"
+        android:layout_width="match_parent"
+        android:layout_height="125dp">
+
+        <ImageView
+            android:id="@+id/resistorBase3Band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/resistor_base" />
+
+        <ImageView
+            android:id="@+id/band1_3band"
+            android:layout_width="10dp"
+            android:layout_height="60dp"
+            android:layout_alignLeft="@+id/resistorBase3Band"
+            android:layout_alignStart="@+id/resistorBase3Band"
+            android:layout_alignTop="@+id/resistorBase3Band"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:background="@color/blackBand"
+            android:baselineAlignBottom="true"
+            android:onClick="incrementBand1" />
+
+        <ImageView
+            android:id="@+id/band2_3band"
+            android:layout_width="10dp"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@+id/band1_3band"
+            android:layout_toRightOf="@+id/band1_3band"
+            android:background="@color/blackBand"
+            android:onClick="incrementBand2" />
+
+        <ImageView
+            android:id="@+id/band3_3band"
+            android:layout_width="10dp"
+            android:layout_height="52dp"
+            android:layout_alignTop="@+id/band2_3band"
+            android:layout_centerHorizontal="true"
+            android:background="@color/blackBand"
+            android:onClick="incrementBand3" />
+
+        <ImageView
+            android:id="@+id/toleranceBand"
+            android:layout_width="10dp"
+            android:layout_height="60dp"
+            android:layout_alignEnd="@+id/resistorBase3Band"
+            android:layout_alignRight="@+id/resistorBase3Band"
+            android:layout_alignTop="@+id/resistorBase3Band"
+            android:layout_marginEnd="23dp"
+            android:layout_marginRight="23dp"
+            android:background="@color/goldBand"
+            android:onClick="incrementTolerance" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="100">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/band1Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/band1Spinner_3band"
+                    android:text="First Band"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/band1Spinner_3band"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:hapticFeedbackEnabled="true" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/band2Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/band2Spinner_3band"
+                    android:layout_toLeftOf="@id/band2Spinner_3band"
+                    android:onClick="incrementBand"
+                    android:text="Second Band"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/band2Spinner_3band"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/band3Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/band2Label"
+                    android:layout_alignStart="@+id/band2Label"
+                    android:layout_alignTop="@+id/band3Spinner_3band"
+                    android:text="Third Band"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/band3Spinner_3band"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/toleranceSpinner_3band"
+                    android:layout_alignLeft="@+id/band2Spinner_3band"
+                    android:layout_alignStart="@+id/band2Spinner_3band" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/toleranceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/band3Label"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignStart="@+id/band3Label"
+                    android:text="Tolerance"
+                    android:textSize="18sp" />
+
+                <Spinner
+                    android:id="@+id/toleranceSpinner_3band"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/band3Spinner_3band"
+                    android:layout_alignStart="@+id/band3Spinner_3band"
+                    android:layout_alignTop="@+id/toleranceLabel" />
+
+            </TableRow>
+        </TableLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="30"
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/resistance3Band"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="65"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/resEntry"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:singleLine="true" />
+
+            <Spinner
+                android:id="@+id/resMultiplierSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="35dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="+/-"
+                android:textAllCaps="true" />
+
+            <Spinner
+                android:id="@+id/tolEntrySpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_weight="65"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <Button
+            android:id="@+id/updateButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/colorButtonNormal"
+            android:onClick="setResistance"
+            android:text="SET RESISTANCE" />
+    </RelativeLayout>
+
+</LinearLayout>
